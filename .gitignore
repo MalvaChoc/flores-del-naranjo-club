@@ -1,0 +1,15 @@
+ls -a
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# SQLite local
+*.db
+*.db-wal
+*.db-shm
+
+# Editor/OS
+.vscode/
+.DS_Store
