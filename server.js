@@ -26,7 +26,8 @@ const crypto = require("crypto");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = "0.0.0.0";
+
 
 // --- Inicializar base de datos SQLite ---
 
