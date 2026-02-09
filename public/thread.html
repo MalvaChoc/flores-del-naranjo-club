@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flores del naranjo club - Tema</title>
+
+    <!-- Tipografía base: Comic Sans, muy dosmilera -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Contenedor general con fondo de patrón se maneja en CSS -->
+    <div class="page-wrapper">
+      <!-- Contenedor central de ancho fijo y bordes chillones -->
+      <div class="forum-container">
+        <!-- HEADER -->
+        <header class="forum-header">
+          <div class="logo-zone">
+            <!-- Logo de texto exageradamente 2000s -->
+            <h1 class="forum-logo">flores del naranjo club :D</h1>
+            <p class="forum-slogan">
+              bienvenid@ al club (2006 vibes)
+            </p>
+          </div>
+
+          <!-- Barra de navegación superior (links principales) -->
+          <nav class="top-nav">
+            <!-- Enlaces principales del foro (Inicio y Perfil son reales) -->
+            <a href="./index.html" class="nav-link">Inicio</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Categorías</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Usuarios</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Reglas</a>
+            <span class="nav-separator">|</span>
+            <a href="./profile.html" class="nav-link">Perfil</a>
+            <span class="nav-separator">|</span>
+            <!-- Slot dinámico para auth (se actualiza con auth.js) -->
+            <span id="authSlot">
+              <a href="./register.html" class="nav-link">Registrarse</a>
+              <span class="nav-separator">|</span>
+              <a href="./login.html" class="nav-link nav-button-2000">Iniciar sesión</a>
+            </span>
+          </nav>
+
+          <!-- Marquee suave, solo referencia estética 2000s -->
+          <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+              Bienvenid@ al <strong>flores del naranjo club</strong> :) • Lee y
+              participa en los temas • Recuerda ser respetuos@ &lt;3
+            </marquee>
+          </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="forum-main" aria-label="Tema del foro">
+          <div class="content-layout">
+            <!-- SIDEBAR IZQUIERDO -->
+            <aside class="sidebar" aria-label="Barra lateral">
+              <!-- Perfil rápido (se actualiza con thread.js) -->
+              <section class="sidebar-section">
+                <h3 class="sidebar-title">Perfil rápido</h3>
+                <div class="profile-quick">
+                  <div
+                    id="thread-profile-avatar"
+                    class="avatar-circle avatar-mini"
+                  >
+                    ?
+                  </div>
+                  <div class="profile-quick-info">
+                    <span id="thread-profile-username" class="profile-username"
+                      >Invitad@</span
+                    >
+                    <span id="thread-profile-status" class="profile-status"
+                      >Inicia sesión para más opciones ;)</span
+                    >
+                  </div>
+                </div>
+              </section>
+            </aside>
+
+            <!-- COLUMNA CENTRAL: THREAD Y POSTS -->
+            <section
+              class="threads-section"
+              aria-label="Tema y mensajes"
+            >
+              <!-- Breadcrumbs -->
+              <nav class="breadcrumbs-2000" aria-label="Navegación">
+                <a href="./index.html">Inicio</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="#" id="breadcrumb-forum-link">Foro</a>
+                <span class="breadcrumb-separator">></span>
+                <span id="breadcrumb-thread-title">Tema</span>
+              </nav>
+
+              <!-- Título del thread -->
+              <div class="threads-header">
+                <h2 class="threads-title" id="thread-title">
+                  Cargando tema...
+                  <span class="text-emote">:)</span>
+                </h2>
+              </div>
+
+              <!-- Panel de respuesta (solo visible si hay sesión) -->
+              <div class="panel-2000" id="reply-panel">
+                <h3 class="threads-title" style="font-size: 1rem; margin-bottom: 8px">
+                  Responder
+                  <span class="text-emote">:)</span>
+                </h3>
+                <form id="reply-form" class="post-message-form">
+                  <div class="form-row-2000">
+                    <label for="reply-content" class="form-label-2000">
+                      Tu mensaje:
+                    </label>
+                    <textarea
+                      id="reply-content"
+                      class="input-2000 textarea-2000"
+                      name="content"
+                      maxlength="2000"
+                      rows="6"
+                      placeholder="Escribe tu respuesta aquí..."
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="form-row-2000">
+                    <div class="char-counter">
+                      <span id="reply-char-count">0</span> / 2000 caracteres
+                    </div>
+                    <button type="submit" class="btn-2000 btn-2000-accent">
+                      Publicar mensaje
+                    </button>
+                  </div>
+                  <!-- Caja de mensajes de error/éxito -->
+                  <div
+                    class="message-box"
+                    id="reply-status"
+                    aria-live="polite"
+                  ></div>
+                </form>
+              </div>
+
+              <!-- Panel para usuarios no logeados -->
+              <div class="panel-2000" id="login-prompt-reply" style="display: none">
+                <h3 class="threads-title" style="font-size: 1rem; margin-bottom: 8px">
+                  Inicia sesión para responder
+                  <span class="text-emote">;)</span>
+                </h3>
+                <p>
+                  Necesitas estar registrad@ para responder en este tema.
+                  <a href="./login.html">Inicia sesión aquí</a> o
+                  <a href="./register.html">regístrate</a> si eres nuev@.
+                </p>
+              </div>
+
+              <!-- Separador punteado -->
+              <hr class="dotted-separator" style="margin: 15px 0" />
+
+              <!-- Lista de posts -->
+              <div id="posts-list" class="posts-list">
+                <!-- Los posts se renderizan aquí desde thread.js -->
+                <div class="message-empty">Cargando mensajes...</div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="forum-footer">
+          <p>
+            flores del naranjo club •
+            <span class="footer-year">2006 vibes</span>
+            • Powered by café instantáneo :)
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Script de autenticación (debe cargarse primero) -->
+    <script src="./auth.js"></script>
+    <!-- Script del thread -->
+    <script src="./thread.js"></script>
+  </body>
+</html>
+
+

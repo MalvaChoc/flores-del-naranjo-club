@@ -1,0 +1,1156 @@
+/* Archivo de estilos principal para el foro 2000s
+ * Estética exageradamente dosmilera, con mucho Comic Sans,
+ * pero ahora con una paleta más apagada tipo "foro 2005 usado de noche".
+ * Colores clave:
+ * - Fondos: grises/beige suaves y azules/grises desaturados.
+ * - Bordes/sombras: grises medios y azules/grises más oscuros (sin negro puro).
+ * - Texto: gris muy oscuro (#222–#333) para descansar la vista.
+ */
+
+/* Paleta base (variables simples para poder ajustar rápido la atmósfera) */
+:root {
+  /* Fondo general "noche suave" */
+  --color-body-bg-1: #c8c4b8; /* beige grisáceo */
+  --color-body-bg-2: #848fa1; /* azul/gris desaturado */
+
+  /* Contenedor principal */
+  --color-container-border: #7a6c83; /* borde sobrio */
+  --color-container-outline: #b3a58e; /* pseudo-marco 2000s más suave */
+  --color-container-bg-top: #e5ddcf;
+  --color-container-bg-mid: #ddd6c8;
+  --color-container-bg-bottom: #d1d7e2;
+
+  /* Header / nav */
+  --color-header-grad-1: #6f738d;
+  --color-header-grad-2: #9a8d68;
+  --color-header-border: #6b627d;
+
+  /* Texto general y enlaces */
+  --color-text-main: #222222;
+  --color-link: #3a5585;
+  --color-link-hover-bg: rgba(255, 255, 255, 0.2);
+
+  /* Sidebar y tablas */
+  --color-sidebar-bg: #f0e7d8;
+  --color-sidebar-border: #b19f84;
+  --color-sidebar-shadow: #81735c;
+  --color-table-border: #7b849b;
+  --color-table-bg: #dde1ea;
+  --color-row-odd: #f3eee4;
+  --color-row-even: #e5dfd2;
+  --color-row-hover: #d1c7b3;
+  --color-row-hover-border: #947a45;
+
+  /* Botones estilo XP apagados */
+  --color-btn-border: #4d4d58;
+  --color-btn-top: #f5f5f7;
+  --color-btn-bottom: #c3c4ce;
+  --color-btn-shadow: #41414a;
+  --color-btn-primary-text: #2c3348;
+  --color-btn-accent-top: #ddd3aa;
+  --color-btn-accent-bottom: #c19a64;
+  --color-btn-accent-border: #937444;
+
+  /* Badges menos neón */
+  --color-badge-new-light: #6ca36b;
+  --color-badge-new-dark: #3f6b46;
+  --color-badge-hot-light: #c66545;
+  --color-badge-hot-dark: #8b3a2a;
+
+  /* Footer */
+  --color-footer-bg: #303448;
+  --color-footer-border: #c2ae7a;
+}
+
+/* =========================
+   RESET MUY LIGERO / BASE
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Tipografía principal dosmilera */
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 16px;
+  color: var(--color-text-main);
+
+  /* Fondo con gradient + patrón simple */
+  background:
+    /* patrón cuadriculado muy suave, menos brillante */
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 0,
+      rgba(255, 255, 255, 0.15) 4px,
+      rgba(255, 255, 255, 0.05) 4px,
+      rgba(255, 255, 255, 0.05) 8px
+    ),
+    /* degradado más apagado tipo noche suave */
+    linear-gradient(135deg, var(--color-body-bg-1), var(--color-body-bg-2));
+
+  /* Evita que el body se pegue a los bordes de la pantalla */
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   LAYOUT GENERAL
+   ========================= */
+.page-wrapper {
+  padding: 20px 10px;
+}
+
+.forum-container {
+  /* Ancho fijo estilo 2000s */
+  max-width: 900px;
+  margin: 0 auto;
+
+  /* Borde grueso pero más sobrio (antes fucsia) */
+  border: 6px solid var(--color-container-border);
+  border-radius: 6px;
+
+  /* Fondo interno: degradado cálido pero menos contrastado */
+  background: linear-gradient(
+    180deg,
+    var(--color-container-bg-top) 0%,
+    var(--color-container-bg-mid) 45%,
+    var(--color-container-bg-bottom) 100%
+  );
+
+  /* Sombra más suave (antes amarillo brillante y sombra muy fuerte) */
+  box-shadow: 0 0 0 3px var(--color-container-outline),
+    0 10px 22px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
+}
+
+/* =========================
+   HEADER Y NAV
+   ========================= */
+.forum-header {
+  padding: 15px 20px 10px;
+  /* Header menos fosforescente, con toque 2000s sobrio */
+  background: linear-gradient(
+    90deg,
+    var(--color-header-grad-1),
+    var(--color-header-grad-2)
+  );
+  border-bottom: 4px dotted var(--color-header-border);
+}
+
+.logo-zone {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.forum-logo {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffffff;
+  /* Sombra menos dura (antes negro puro y fucsia intenso) */
+  text-shadow: 2px 2px 0 #26263b, -1px -1px 0 #b784c4;
+  letter-spacing: 1px;
+}
+
+.forum-slogan {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #3b3958;
+  background: rgba(255, 255, 255, 0.55);
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px dashed #b784c4;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #2e3d63;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.nav-link:hover {
+  background: var(--color-link-hover-bg);
+  text-decoration: none;
+}
+
+.nav-separator {
+  color: #4a4562;
+  font-weight: bold;
+}
+
+/* Botón especial de nav con efecto 3D/bevel */
+.nav-button-2000 {
+  border: 2px solid #4a587c;
+  background: linear-gradient(180deg, #f2f4fa, #c9d0df);
+  box-shadow: inset 1px 1px 0 #f9fafc, inset -1px -1px 0 #2c3653,
+    1px 1px 0 #2c3653;
+}
+
+.nav-button-2000:hover {
+  background: linear-gradient(180deg, #e8ebf5, #b4bed3);
+}
+
+.marquee-wrapper {
+  margin-top: 10px;
+  border-top: 1px dashed #7a6c8f;
+  padding-top: 5px;
+  font-size: 0.9rem;
+  color: #3f3b5b;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+   CONTENIDO PRINCIPAL
+   ========================= */
+.forum-main {
+  padding: 15px 15px 20px;
+}
+
+.content-layout {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+}
+
+.sidebar-block {
+  margin-bottom: 15px;
+  /* Bloques laterales más cálidos y suaves (antes rosa muy claro) */
+  background: var(--color-sidebar-bg);
+  border: 2px solid var(--color-sidebar-border);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
+  padding: 8px 10px 10px;
+}
+
+.sidebar-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #5b4454;
+  text-shadow: 1px 1px 0 #f5f2ea;
+  border-bottom: 1px dotted #aa92a5;
+  padding-bottom: 3px;
+}
+
+.text-emote {
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.sidebar-content {
+  font-size: 0.9rem;
+}
+
+.profile-box p {
+  margin: 3px 0;
+}
+
+/* Bloque de perfil rápido: avatar + texto en línea */
+.home-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.home-profile-text {
+  flex: 1;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+.sidebar-list li {
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.category-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e8deb0 0%, #a6783b 100%);
+  box-shadow: 0 0 2px #a6783b;
+}
+
+.top-users-list .user-rank {
+  display: inline-block;
+  width: 26px;
+  font-weight: bold;
+  color: #b14d63;
+}
+
+.dotted-separator {
+  border: none;
+  border-top: 2px dotted #aa92a5;
+  margin: 8px 0 12px;
+}
+
+/* ===== Columna central (temas) ===== */
+.threads-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.threads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.threads-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #3c4f6c;
+  text-shadow: 1px 1px 0 #f0ece2;
+}
+
+.badge-legend {
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.threads-table-wrapper {
+  border: 2px solid var(--color-table-border);
+  border-radius: 4px;
+  background: var(--color-table-bg);
+  box-shadow: 2px 2px 0 #5a6079;
+  overflow-x: auto;
+}
+
+.threads-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+
+.threads-table thead {
+  background: linear-gradient(180deg, #e8e9f0, #c0c7d8);
+}
+
+.threads-table th,
+.threads-table td {
+  padding: 6px 8px;
+  border-bottom: 1px dotted #b1b8c9;
+}
+
+.threads-table th {
+  text-align: left;
+  color: #2e3a55;
+  border-bottom: 2px solid #6b7597;
+  font-size: 0.95rem;
+}
+
+.threads-table tbody tr:nth-child(odd) {
+  background: var(--color-row-odd);
+}
+
+.threads-table tbody tr:nth-child(even) {
+  background: var(--color-row-even);
+}
+
+/* Hover llamativo tipo 2000s */
+.threads-table tbody tr:hover {
+  background: var(--color-row-hover);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px var(--color-row-hover-border);
+}
+
+.thread-title-cell {
+  font-weight: bold;
+  color: #3a4d79;
+}
+
+.thread-title-main {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.thread-meta {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* =========================
+   AVATARES Y PREVIEW PERFIL
+   ========================= */
+.avatar-circle {
+  /* Círculo retro por defecto (se reutiliza en home y perfil) */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #f5f0dd 0%,
+    #b49b6b 60%,
+    #6b5b3b 100%
+  );
+  border: 2px solid #5e4e36;
+  box-shadow: 1px 1px 0 #3c3122, inset 1px 1px 0 rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2f2417;
+}
+
+.avatar-mini {
+  /* Versión pequeña para la barra lateral del home */
+  width: 36px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+.avatar-preview-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 2px solid #8c7b60;
+  background: linear-gradient(180deg, #e9e1cf, #d0c2a4);
+  box-shadow: inset 1px 1px 0 #f7f2e8, 2px 2px 0 #5c4f3b;
+}
+
+.avatar-image {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid #5e4e36;
+  object-fit: cover;
+}
+
+.avatar-image-hidden {
+  display: none;
+}
+
+.avatar-image-visible {
+  display: block;
+}
+
+/* =========================
+   FORMULARIO / PANEL PERFIL
+   ========================= */
+.panel-2000 {
+  border: 2px solid #7b6e56;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #e6ddcf, #d3c6b0);
+  box-shadow: 2px 2px 0 #5e5240;
+  padding: 10px 12px 12px;
+}
+
+.profile-panel {
+  margin-bottom: 12px;
+}
+
+.profile-form {
+  margin-top: 8px;
+}
+
+.form-row-2000 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.form-label-2000 {
+  min-width: 150px;
+  font-size: 0.9rem;
+}
+
+.input-2000 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 0.9rem;
+  padding: 3px 6px;
+  border-radius: 2px;
+  border: 1px solid #7a7a84;
+  background: #f1f1f5;
+  box-shadow: inset 1px 1px 0 #ffffff;
+  min-width: 0;
+  flex: 1;
+}
+
+.input-2000:focus {
+  outline: none;
+  border-color: #556b9b;
+  box-shadow: inset 1px 1px 0 #ffffff, 0 0 0 1px #a2b0d5;
+  background: #f7f7fb;
+}
+
+.profile-actions {
+  justify-content: flex-start;
+}
+
+.profile-preview-wrapper {
+  margin-top: 6px;
+}
+
+.profile-preview-title {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #4b412e;
+}
+
+/* Links internos de la sidebar de perfil */
+.sidebar-profile-links {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px dotted #b39ea4;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.85rem;
+}
+
+.sidebar-profile-links a {
+  color: #3a5585;
+}
+
+.sidebar-profile-links a:hover {
+  text-decoration: underline;
+}
+
+/* Caja de estado para mensajes de guardado/errores */
+.status-box-2000 {
+  margin-top: 8px;
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  border: 1px dashed #8b7c60;
+  background: #f2ebde;
+  color: #4a4032;
+  min-height: 1.2em;
+}
+
+.status-box-2000.status-ok {
+  border-color: #6f8a5d;
+  background: #e2f0db;
+  color: #344423;
+}
+
+.status-box-2000.status-error {
+  border-color: #a46050;
+  background: #f3ddd7;
+  color: #5a2417;
+}
+
+/* Alias genérico de fila de formulario para otras pantallas (registro, etc.) */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Checkbox con estilo ligero 2000s */
+.form-row-checkbox {
+  align-items: flex-start;
+}
+
+.checkbox-wrapper-2000 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.checkbox-wrapper-2000 input[type="checkbox"] {
+  margin: 0;
+}
+
+/* =========================
+   BOTONES CON EFECTO BEVEL
+   ========================= */
+.btn-2000 {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 2px solid var(--color-btn-border);
+  cursor: pointer;
+  /* Efecto 3D/bevel usando bordes claros y oscuros */
+  border-top-color: var(--color-btn-top);
+  border-left-color: var(--color-btn-top);
+  border-bottom-color: #62626c;
+  border-right-color: #62626c;
+  background: linear-gradient(180deg, var(--color-btn-top), var(--color-btn-bottom));
+  box-shadow: 1px 1px 0 var(--color-btn-shadow);
+}
+
+.btn-2000:active {
+  /* Invertir bevel al hacer click */
+  border-top-color: #62626c;
+  border-left-color: #62626c;
+  border-bottom-color: var(--color-btn-top);
+  border-right-color: var(--color-btn-top);
+  background: linear-gradient(180deg, #b9bbc6, #e4e4ec);
+  box-shadow: inset 1px 1px 0 var(--color-btn-shadow);
+}
+
+.btn-2000-primary {
+  color: var(--color-btn-primary-text);
+}
+
+.btn-2000-accent {
+  background: linear-gradient(
+    180deg,
+    var(--color-btn-accent-top),
+    var(--color-btn-accent-bottom)
+  );
+  border-top-color: #f0ebd0;
+  border-left-color: #f0ebd0;
+  border-bottom-color: var(--color-btn-accent-border);
+  border-right-color: var(--color-btn-accent-border);
+  color: #5a4320;
+}
+
+.btn-2000-accent:active {
+  background: linear-gradient(
+    180deg,
+    var(--color-btn-accent-bottom),
+    var(--color-btn-accent-top)
+  );
+}
+
+/* Botón especial para Google demo (más ancho) */
+.btn-google-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(180deg, #f3f3f7, #d2d4e0);
+}
+
+.btn-google-demo:active {
+  background: linear-gradient(180deg, #d2d4e0, #f3f3f7);
+}
+
+.google-icon-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #c4c6d7 100%);
+  border: 1px solid #6a6d85;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-icon-letter {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #3a4f8f;
+}
+
+/* Paneles específicos de registro */
+.register-panel {
+  margin-bottom: 12px;
+}
+
+.register-form {
+  margin-top: 8px;
+}
+
+.register-actions {
+  justify-content: flex-start;
+}
+
+.register-secondary-panel {
+  margin-top: 10px;
+}
+
+.register-secondary-text {
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+/* Caja de mensajes de registro (éxito / error) */
+.message-box {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  border-radius: 3px;
+  border: 1px dashed transparent;
+  min-height: 1.2em;
+}
+
+.message-success {
+  border-color: #6f8a5d;
+  background: #e2f0db;
+  color: #344423;
+}
+
+.message-error {
+  border-color: #a46050;
+  background: #f3ddd7;
+  color: #5a2417;
+}
+
+/* Separador punteado con texto "o" para el registro */
+.divider-dotted {
+  margin: 10px 0;
+  text-align: center;
+  position: relative;
+  font-size: 0.85rem;
+  color: #6a6456;
+}
+
+.divider-dotted::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px dotted #aa92a5;
+  transform: translateY(-50%);
+}
+
+.divider-dotted span {
+  position: relative;
+  padding: 0 8px;
+  background: linear-gradient(
+    180deg,
+    var(--color-container-bg-top),
+    var(--color-container-bg-mid)
+  );
+}
+
+/* =========================
+   BADGES "NEW" / "HOT"
+   ========================= */
+.badge {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  margin-left: 3px;
+  box-shadow: 1px 1px 0 #39393f;
+}
+
+.badge-new {
+  background: linear-gradient(
+    180deg,
+    var(--color-badge-new-light),
+    var(--color-badge-new-dark)
+  );
+  border: 1px solid #304934;
+}
+
+.badge-hot {
+  background: linear-gradient(
+    180deg,
+    var(--color-badge-hot-light),
+    var(--color-badge-hot-dark)
+  );
+  border: 1px solid #5b2b1f;
+}
+
+/* =========================
+   MENSAJE DE BIENVENIDA
+   ========================= */
+.welcome-message {
+  margin: 12px auto;
+  padding: 10px 15px;
+  background: var(--color-sidebar-bg);
+  border: 2px solid var(--color-sidebar-border);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  text-align: center;
+  border-style: dashed;
+  max-width: 900px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.forum-footer {
+  padding: 10px 15px;
+  background: var(--color-footer-bg);
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 3px dotted var(--color-footer-border);
+}
+
+.footer-year {
+  color: var(--color-footer-border);
+  font-weight: bold;
+}
+
+/* =========================
+   MURO DE MENSAJES
+   ========================= */
+
+/* Formulario de publicación */
+.post-message-form {
+  margin-top: 8px;
+}
+
+.textarea-2000 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  border-radius: 2px;
+  border: 1px solid #7a7a84;
+  background: #f1f1f5;
+  box-shadow: inset 1px 1px 0 #ffffff;
+  width: 100%;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea-2000:focus {
+  outline: none;
+  border-color: #556b9b;
+  box-shadow: inset 1px 1px 0 #ffffff, 0 0 0 1px #a2b0d5;
+  background: #f7f7fb;
+}
+
+.char-counter {
+  font-size: 0.8rem;
+  color: #6a6456;
+  margin-right: auto;
+}
+
+/* Feed de mensajes */
+.messages-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.message-empty {
+  padding: 20px;
+  text-align: center;
+  color: #6a6456;
+  font-style: italic;
+  background: var(--color-sidebar-bg);
+  border: 1px dashed var(--color-sidebar-border);
+  border-radius: 4px;
+}
+
+/* Tarjeta de mensaje individual */
+.message-card {
+  background: var(--color-sidebar-bg);
+  border: 2px solid var(--color-sidebar-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dotted #aa92a5;
+}
+
+.message-user-info {
+  flex: 1;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.message-username {
+  color: #3a4d79;
+  font-weight: bold;
+}
+
+.message-date {
+  color: #6a6456;
+  font-size: 0.85rem;
+}
+
+.message-content {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Panel de prompt de login */
+#login-prompt-panel p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+#login-prompt-panel a {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+/* =========================
+   LISTA DE FOROS
+   ========================= */
+
+/* Contenedor de la lista de foros */
+.forums-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.forum-empty {
+  padding: 20px;
+  text-align: center;
+  color: #6a6456;
+  font-style: italic;
+  background: var(--color-sidebar-bg);
+  border: 1px dashed var(--color-sidebar-border);
+  border-radius: 4px;
+}
+
+/* Tarjeta de foro individual */
+.forum-card {
+  background: var(--color-sidebar-bg);
+  border: 2px solid var(--color-sidebar-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
+}
+
+.forum-header-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dotted #aa92a5;
+  flex-wrap: wrap;
+}
+
+.forum-title-link {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #3a4d79;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+
+.forum-title-link:hover {
+  text-decoration: underline;
+  color: #2a3d69;
+}
+
+.forum-description {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+
+.forum-footer-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dotted #aa92a5;
+}
+
+.forum-date {
+  font-size: 0.85rem;
+  color: #6a6456;
+}
+
+/* Panel de creación de foro */
+#create-forum-panel {
+  margin-bottom: 12px;
+}
+
+/* =========================
+   POSTS Y THREADS
+   ========================= */
+
+/* Breadcrumbs estilo 2000s */
+.breadcrumbs-2000 {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #6a6456;
+}
+
+.breadcrumbs-2000 a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.breadcrumbs-2000 a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 6px;
+  color: #aa92a5;
+}
+
+/* Lista de posts */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Tarjeta de post individual */
+.post-card {
+  background: var(--color-sidebar-bg);
+  border: 2px solid var(--color-sidebar-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #aa92a5;
+}
+
+.post-user-info {
+  flex: 1;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.post-username {
+  color: #3a4d79;
+  font-weight: bold;
+}
+
+.post-date {
+  color: #6a6456;
+  font-size: 0.85rem;
+}
+
+.post-content {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* =========================
+   RESPONSIVE BÁSICO
+   ========================= */
+@media (max-width: 900px) {
+  .forum-container {
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .forum-header {
+    text-align: center;
+  }
+
+  .top-nav {
+    gap: 6px;
+  }
+
+  .content-layout {
+    flex-direction: column;
+  }
+
+  /* Sidebar pasa abajo en móvil */
+  .threads-section {
+    order: 1;
+  }
+
+  .sidebar {
+    order: 2;
+    width: 100%;
+  }
+
+  /* Foros en columna en móvil */
+  .forum-footer-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .forum-footer-card .btn-2000 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+

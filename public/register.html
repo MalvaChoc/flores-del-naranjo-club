@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flores del naranjo club - Registro</title>
+
+    <!-- Tipografía base: Comic Sans, muy dosmilera -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Contenedor general con fondo de patrón se maneja en CSS -->
+    <div class="page-wrapper">
+      <!-- Contenedor central de ancho fijo y bordes 2000s -->
+      <div class="forum-container">
+        <!-- HEADER (mismo que en index/profile) -->
+        <header class="forum-header">
+          <div class="logo-zone">
+            <!-- Logo de texto exageradamente 2000s -->
+            <h1 class="forum-logo">flores del naranjo club :D</h1>
+            <p class="forum-slogan">
+              bienvenid@ al club (2006 vibes)
+            </p>
+          </div>
+
+          <!-- Barra de navegación superior (links principales) -->
+          <nav class="top-nav">
+            <a href="./index.html" class="nav-link">Inicio</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Categorías</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Usuarios</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Reglas</a>
+            <span class="nav-separator">|</span>
+            <a href="./profile.html" class="nav-link">Perfil</a>
+            <span class="nav-separator">|</span>
+            <a href="./register.html" class="nav-link">Registrarse</a>
+            <span class="nav-separator">|</span>
+            <a href="./login.html" class="nav-link nav-button-2000"
+              >Iniciar sesión</a
+            >
+          </nav>
+
+          <!-- Marquee suave, solo referencia estética 2000s -->
+          <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+              Bienvenid@ al
+              <strong>registro dosmilero</strong>
+              :) • Llena el formulario clásico o prueba el
+              <em>Google demo</em>
+              ;D
+            </marquee>
+          </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="forum-main" aria-label="Página de registro">
+          <div class="content-layout">
+            <!-- En la página de registro usamos solo la columna central -->
+            <section
+              class="threads-section"
+              aria-label="Formulario de registro"
+            >
+              <!-- Panel principal: Crear cuenta -->
+              <div class="panel-2000 register-panel">
+                <h2 class="threads-title">
+                  Crear cuenta
+                  <span class="text-emote">:P</span>
+                </h2>
+
+                <!-- Caja de mensajes globales (éxito/error) -->
+                <div
+                  id="register-message"
+                  class="message-box"
+                  aria-live="polite"
+                ></div>
+
+                <!-- Formulario de registro clásico -->
+                <form id="register-form" class="register-form" novalidate>
+                  <!-- Nombre de usuario -->
+                  <div class="form-row">
+                    <label for="reg-username" class="form-label-2000">
+                      Nombre de usuario:
+                    </label>
+                    <input
+                      type="text"
+                      id="reg-username"
+                      class="input-2000"
+                      name="username"
+                      minlength="3"
+                      maxlength="20"
+                      autocomplete="username"
+                      required
+                    />
+                  </div>
+
+                  <!-- Email -->
+                  <div class="form-row">
+                    <label for="reg-email" class="form-label-2000">
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      id="reg-email"
+                      class="input-2000"
+                      name="email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+
+                  <!-- Contraseña -->
+                  <div class="form-row">
+                    <label for="reg-password" class="form-label-2000">
+                      Contraseña:
+                    </label>
+                    <input
+                      type="password"
+                      id="reg-password"
+                      class="input-2000"
+                      name="password"
+                      minlength="6"
+                    />
+                  </div>
+
+                  <!-- Confirmar contraseña -->
+                  <div class="form-row">
+                    <label for="reg-password-confirm" class="form-label-2000">
+                      Confirmar contraseña:
+                    </label>
+                    <input
+                      type="password"
+                      id="reg-password-confirm"
+                      class="input-2000"
+                      name="passwordConfirm"
+                      minlength="6"
+                    />
+                  </div>
+
+                  <!-- Aceptar reglas -->
+                  <div class="form-row form-row-checkbox">
+                    <label class="form-label-2000" for="reg-terms">
+                      &nbsp;
+                    </label>
+                    <div class="checkbox-wrapper-2000">
+                      <input
+                        type="checkbox"
+                        id="reg-terms"
+                        name="terms"
+                      />
+                      <label for="reg-terms">
+                        Acepto las reglas del foro (sin drama innecesario) ;)
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Botón Crear cuenta -->
+                  <div class="form-row register-actions">
+                    <button
+                      type="submit"
+                      class="btn-2000 btn-2000-accent"
+                      id="btn-register-submit"
+                    >
+                      Crear cuenta
+                    </button>
+                  </div>
+                </form>
+
+                <!-- Separador "o" estilo 2000s -->
+                <div class="divider-dotted">
+                  <span>o</span>
+                </div>
+
+                <!-- Botón grande para registro Google demo -->
+                <div class="form-row">
+                  <button
+                    type="button"
+                    class="btn-2000 btn-google-demo"
+                    id="btn-google-register"
+                  >
+                    <!-- Ícono simple tipo "G" retro, hecho en CSS/SVG inline -->
+                    <span class="google-icon-circle">
+                      <span class="google-icon-letter">G</span>
+                    </span>
+                    <span>Registrarse con Google (demo)</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Panel secundario: Ya tienes cuenta -->
+              <div class="panel-2000 register-secondary-panel">
+                <h3 class="threads-title">
+                  ¿Ya tienes cuenta?
+                  <span class="text-emote">:O</span>
+                </h3>
+                <p class="register-secondary-text">
+                  Entonces solo te falta iniciar sesión como en 2004.
+                </p>
+                <p class="register-secondary-text">
+                  <a href="./login.html">Ir a Iniciar sesión</a>
+                  (pantalla en construcción, pero el link ya está listo).
+                </p>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="forum-footer">
+          <p>
+            Hecho con puro ñeque •
+            <span class="footer-year">2006 vibes</span>
+            • Demo de registro sin backend, puro front retro :)
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Script de registro -->
+    <script src="./register.js"></script>
+  </body>
+</html>
+

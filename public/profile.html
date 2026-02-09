@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flores del naranjo club - Perfil</title>
+
+    <!-- Tipografía base: Comic Sans, muy dosmilera -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Contenedor general con fondo de patrón se maneja en CSS -->
+    <div class="page-wrapper">
+      <!-- Contenedor central de ancho fijo y bordes chillones (ahora más sobrios) -->
+      <div class="forum-container">
+        <!-- HEADER (igual que en index, pero con link a Perfil activo) -->
+        <header class="forum-header">
+          <div class="logo-zone">
+            <!-- Logo de texto exageradamente 2000s -->
+            <h1 class="forum-logo">flores del naranjo club :D</h1>
+            <p class="forum-slogan">
+              bienvenid@ al club (2006 vibes)
+            </p>
+          </div>
+
+          <!-- Barra de navegación superior (links principales) -->
+          <nav class="top-nav">
+            <a href="./index.html" class="nav-link">Inicio</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Categorías</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Usuarios</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Reglas</a>
+            <span class="nav-separator">|</span>
+            <!-- Link real a esta página -->
+            <a href="./profile.html" class="nav-link">Perfil</a>
+            <span class="nav-separator">|</span>
+            <a href="./register.html" class="nav-link">Registrarse</a>
+            <span class="nav-separator">|</span>
+            <a href="./login.html" class="nav-link nav-button-2000"
+              >Iniciar sesión</a
+            >
+          </nav>
+
+          <!-- Marquee suave, solo referencia estética 2000s -->
+          <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+              Edita tu
+              <strong>perfil retro</strong>
+              :) • Cambia tu avatar, pero no pierdas las
+              <em>2006 vibes</em>
+              ;D
+            </marquee>
+          </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="forum-main" aria-label="Página de perfil">
+          <div class="content-layout">
+            <!-- SIDEBAR IZQUIERDO -->
+            <aside class="sidebar" aria-label="Barra lateral de perfil">
+              <!-- Perfil rápido en la página de perfil -->
+              <section class="sidebar-block" id="profile-quick-sidebar">
+                <h2 class="sidebar-title">
+                  Perfil rápido
+                  <span class="text-emote">:)</span>
+                </h2>
+                <div class="sidebar-content profile-box">
+                  <div class="home-profile-header">
+                    <!-- Avatar principal de perfil (se sincroniza con el panel) -->
+                    <div
+                      class="avatar-circle"
+                      id="profile-sidebar-avatar"
+                      aria-hidden="true"
+                    >
+                      D
+                    </div>
+                    <div class="home-profile-text">
+                      <p class="profile-name">
+                        <strong>Usuario:</strong>
+                        <span id="profile-sidebar-username">Darko_2006</span>
+                      </p>
+                      <p id="profile-sidebar-status">
+                        <strong>Estado:</strong> Soñando en 1024x768 ;D
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Links internos dentro de la página de perfil -->
+                  <nav class="sidebar-profile-links">
+                    <a href="#panel-editar">Editar perfil</a>
+                    <a href="#mis-temas">Mis temas</a>
+                    <a href="#configuracion">Configuración</a>
+                  </nav>
+                </div>
+              </section>
+            </aside>
+
+            <!-- COLUMNA CENTRAL: PANEL EDITAR PERFIL -->
+            <section
+              class="threads-section profile-section"
+              aria-label="Editor de perfil"
+            >
+              <div class="profile-panel panel-2000" id="panel-editar">
+                <h2 class="threads-title">
+                  Editar perfil
+                  <span class="text-emote">^_^</span>
+                </h2>
+
+                <!-- Panel principal de edición -->
+                <form id="profile-form" class="profile-form" novalidate>
+                  <!-- Campo: Nombre de usuario -->
+                  <div class="form-row-2000">
+                    <label for="profile-username" class="form-label-2000">
+                      Nombre de usuario:
+                    </label>
+                    <input
+                      type="text"
+                      id="profile-username"
+                      class="input-2000"
+                      name="username"
+                      minlength="3"
+                      maxlength="20"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <!-- Campo: Foto de perfil (URL) -->
+                  <div class="form-row-2000">
+                    <label for="profile-avatar-url" class="form-label-2000">
+                      Foto de perfil (URL):
+                    </label>
+                    <input
+                      type="url"
+                      id="profile-avatar-url"
+                      class="input-2000"
+                      name="avatarUrl"
+                      placeholder="http://ejemplo.com/avatar.gif"
+                    />
+                  </div>
+
+                  <!-- Acciones del formulario -->
+                  <div class="form-row-2000 profile-actions">
+                    <button
+                      type="button"
+                      class="btn-2000 btn-2000-primary"
+                      id="btn-preview-avatar"
+                    >
+                      Vista previa
+                    </button>
+
+                    <button
+                      type="submit"
+                      class="btn-2000 btn-2000-accent"
+                      id="btn-save-profile"
+                    >
+                      Guardar cambios
+                    </button>
+                  </div>
+
+                  <!-- Vista previa del avatar -->
+                  <div class="profile-preview-wrapper">
+                    <div class="profile-preview-title">
+                      Vista previa del avatar
+                    </div>
+                    <div class="avatar-preview-box">
+                      <!-- Avatar por defecto: círculo retro con inicial -->
+                      <div
+                        class="avatar-circle"
+                        id="profile-avatar-circle"
+                        aria-hidden="true"
+                      >
+                        D
+                      </div>
+                      <!-- Imagen opcional cuando se usa una URL válida -->
+                      <img
+                        id="profile-avatar-image"
+                        class="avatar-image avatar-image-hidden"
+                        alt="Avatar de usuario"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Caja de mensajes tipo 2006 vibes -->
+                  <div
+                    class="status-box-2000"
+                    id="profile-status-message"
+                    aria-live="polite"
+                  ></div>
+                </form>
+              </div>
+
+              <!-- Secciones ancla decorativas (no funcionales aún) -->
+              <div id="mis-temas"></div>
+              <div id="configuracion"></div>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="forum-footer">
+          <p>
+            Hecho con puro ñeque •
+            <span class="footer-year">2006 vibes</span>
+            • Perfil retro guardado en tu navegador :)
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Script de la página de perfil (sin librerías externas) -->
+    <script src="./profile.js"></script>
+  </body>
+</html>
+
+

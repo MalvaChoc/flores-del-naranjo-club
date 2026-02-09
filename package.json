@@ -1,0 +1,15 @@
+{
+  "name": "foro-neque-2006",
+  "version": "1.0.0",
+  "description": "Foro web estilo dosmilero (2004) con backend Node/Express y SQLite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^9.6.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.22.1"
+  }
+}

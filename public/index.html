@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flores del naranjo club</title>
+
+    <!-- Tipografía base: Comic Sans, muy dosmilera -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Contenedor general con fondo de patrón se maneja en CSS -->
+    <div class="page-wrapper">
+      <!-- Contenedor central de ancho fijo y bordes chillones -->
+      <div class="forum-container">
+        <!-- HEADER -->
+        <header class="forum-header">
+          <div class="logo-zone">
+            <!-- Logo de texto exageradamente 2000s -->
+            <h1 class="forum-logo">flores del naranjo club :D</h1>
+            <p class="forum-slogan">
+              bienvenid@ al club (2006 vibes)
+            </p>
+          </div>
+
+          <!-- Barra de navegación superior (links principales) -->
+          <nav class="top-nav">
+            <!-- Enlaces principales del foro (Inicio y Perfil son reales) -->
+            <a href="./index.html" class="nav-link">Inicio</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Categorías</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Usuarios</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Reglas</a>
+            <span class="nav-separator">|</span>
+            <a href="./profile.html" class="nav-link">Perfil</a>
+            <span class="nav-separator">|</span>
+            <!-- Slot dinámico para auth (se actualiza con auth.js) -->
+            <span id="authSlot">
+              <a href="./register.html" class="nav-link">Registrarse</a>
+              <span class="nav-separator">|</span>
+              <a href="./login.html" class="nav-link nav-button-2000">Iniciar sesión</a>
+            </span>
+          </nav>
+
+          <!-- Marquee suave, solo referencia estética 2000s -->
+          <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+              Bienvenid@ al <strong>flores del naranjo club</strong> :) • Comparte
+              tus pensamientos en el muro • Recuerda saludar a los nuevos
+              miembros &lt;3
+            </marquee>
+          </div>
+        </header>
+
+        <!-- Mensaje de bienvenida aleatorio -->
+        <div id="welcomeMessage" class="welcome-message"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="forum-main" aria-label="Foro principal">
+          <div class="content-layout">
+            <!-- SIDEBAR IZQUIERDO -->
+            <aside class="sidebar" aria-label="Barra lateral">
+              <!-- Perfil rápido (mock, se puede personalizar con localStorage) -->
+              <section class="sidebar-block" id="home-quick-profile">
+                <h2 class="sidebar-title">
+                  Perfil rápido
+                  <span class="text-emote">:)</span>
+                </h2>
+                <div class="sidebar-content profile-box">
+                  <!-- Bloque principal con mini avatar + nombre -->
+                  <div class="home-profile-header">
+                    <!-- Mini avatar circular; se actualiza en app.js si hay perfil guardado -->
+                    <div
+                      class="avatar-circle avatar-mini"
+                      id="home-profile-avatar"
+                      aria-hidden="true"
+                    >
+                      D
+                    </div>
+
+                    <div class="home-profile-text">
+                      <p class="profile-name">
+                        <strong>Usuario:</strong>
+                        <span id="home-profile-username">Darko_2006</span>
+                      </p>
+                      <p id="home-profile-status">
+                        <strong>Estado:</strong> En línea ;D
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Datos fijos de ejemplo -->
+                  <p><strong>Posts:</strong> 1234</p>
+                  <p><strong>Desde:</strong> 2004</p>
+
+                  <!-- Botones con efecto bevel -->
+                  <button class="btn-2000 btn-2000-primary">
+                    Cambiar avatar T_T
+                  </button>
+                  <button
+                    class="btn-2000 btn-2000-primary"
+                    id="home-logout-button"
+                    style="margin-top: 4px"
+                  >
+                    Cerrar sesión
+                  </button>
+                </div>
+              </section>
+
+              <!-- Separador punteado -->
+              <hr class="dotted-separator" />
+
+              <!-- Lista de categorías (decorativa) -->
+              <section class="sidebar-block">
+                <h2 class="sidebar-title">
+                  Categorías
+                  <span class="text-emote">:D</span>
+                </h2>
+                <ul class="sidebar-list">
+                  <li>
+                    <span class="category-dot"></span> General
+                    <span class="badge badge-new">NEW</span>
+                  </li>
+                  <li>
+                    <span class="category-dot"></span> Off-topic
+                  </li>
+                  <li>
+                    <span class="category-dot"></span> Videojuegos
+                    <span class="badge badge-hot">HOT</span>
+                  </li>
+                  <li>
+                    <span class="category-dot"></span> Música &amp; MP3
+                  </li>
+                  <li>
+                    <span class="category-dot"></span> Hardware &amp; Tuning
+                  </li>
+                  <li>
+                    <span class="category-dot"></span> Soporte técnico
+                  </li>
+                </ul>
+              </section>
+
+              <!-- Separador punteado -->
+              <hr class="dotted-separator" />
+
+              <!-- Top usuarios (decorativo) -->
+              <section class="sidebar-block">
+                <h2 class="sidebar-title">
+                  Top usuarios
+                  <span class="text-emote">&lt;3</span>
+                </h2>
+                <ol class="sidebar-list top-users-list">
+                  <li><span class="user-rank">#1</span> AdminSupremo</li>
+                  <li><span class="user-rank">#2</span> Darko_2006</li>
+                  <li><span class="user-rank">#3</span> Lolita_XD</li>
+                  <li><span class="user-rank">#4</span> RetroGeek</li>
+                  <li><span class="user-rank">#5</span> Anónimo_</li>
+                </ol>
+              </section>
+            </aside>
+
+            <!-- COLUMNA CENTRAL: LISTA DE FOROS -->
+            <section
+              class="threads-section"
+              aria-label="Lista de foros del club"
+            >
+              <!-- MURO DEL CLUB -->
+              <div class="panel-2000" id="wall-panel" style="margin-bottom: 16px">
+                <h2 class="threads-title" style="font-size: 1.2rem">
+                  Muro del club
+                  <span class="text-emote">:P</span>
+                </h2>
+
+                <!-- Prompt si no hay sesión -->
+                <div
+                  id="login-prompt-panel"
+                  class="message-box"
+                  style="display: none"
+                  aria-live="polite"
+                >
+                  <p>
+                    Para publicar en el muro debes
+                    <a href="./login.html">iniciar sesión</a>.
+                  </p>
+                </div>
+
+                <!-- Formulario de publicación -->
+                <form id="message-form" class="post-message-form" style="display: none">
+                  <div class="form-row-2000">
+                    <label for="message-content" class="form-label-2000">
+                      Publicar mensaje:
+                    </label>
+                    <textarea
+                      id="message-content"
+                      class="input-2000 textarea-2000"
+                      name="content"
+                      maxlength="280"
+                      rows="4"
+                      placeholder="Escribe algo bacán del 2006..."
+                    ></textarea>
+                  </div>
+                  <div class="form-row-2000" style="align-items: center; gap: 8px">
+                    <span id="message-counter" class="char-counter">0/280</span>
+                    <button type="submit" class="btn-2000 btn-2000-accent">
+                      Publicar
+                    </button>
+                  </div>
+                  <div
+                    class="message-box"
+                    id="message-status"
+                    aria-live="polite"
+                  ></div>
+                </form>
+
+                <!-- Feed de mensajes -->
+                <div id="messages-feed" class="messages-feed">
+                  <!-- Mensajes renderizados por app.js -->
+                </div>
+              </div>
+
+              <!-- Título y botón crear foro (solo admin) -->
+              <div class="threads-header">
+                <h2 class="threads-title">
+                  Foros del club
+                  <span class="text-emote">:D</span>
+                </h2>
+                <button
+                  class="btn-2000 btn-2000-accent"
+                  id="btn-create-forum"
+                  style="display: none"
+                >
+                  + Crear foro
+                </button>
+              </div>
+
+              <!-- Panel/modal para crear foro (solo visible si admin) -->
+              <div class="panel-2000" id="create-forum-panel" style="display: none">
+                <h3 class="threads-title" style="font-size: 1.1rem; margin-bottom: 8px">
+                  Crear nuevo foro
+                  <span class="text-emote">^_^</span>
+                </h3>
+                <form id="create-forum-form" class="post-message-form">
+                  <div class="form-row-2000">
+                    <label for="forum-title" class="form-label-2000">
+                      Título:
+                    </label>
+                    <input
+                      type="text"
+                      id="forum-title"
+                      class="input-2000"
+                      name="title"
+                      minlength="3"
+                      maxlength="40"
+                      placeholder="ej: Música Penquista"
+                      required
+                    />
+                  </div>
+                  <div class="form-row-2000">
+                    <label for="forum-description" class="form-label-2000">
+                      Descripción:
+                    </label>
+                    <textarea
+                      id="forum-description"
+                      class="input-2000 textarea-2000"
+                      name="description"
+                      maxlength="140"
+                      rows="3"
+                      placeholder="Descripción corta del foro (opcional)"
+                    ></textarea>
+                  </div>
+                  <div class="form-row-2000">
+                    <button type="submit" class="btn-2000 btn-2000-accent">
+                      Crear
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-2000 btn-2000-primary"
+                      id="btn-cancel-create-forum"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                  <!-- Caja de mensajes de error/éxito -->
+                  <div
+                    class="message-box"
+                    id="create-forum-status"
+                    aria-live="polite"
+                  ></div>
+                </form>
+              </div>
+
+              <!-- Separador punteado -->
+              <hr class="dotted-separator" style="margin: 15px 0" />
+
+              <!-- Contenedor de la lista de foros -->
+              <div id="forums-list" class="forums-list">
+                <!-- Los foros se renderizan aquí desde app.js -->
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="forum-footer">
+          <p>
+            flores del naranjo club •
+            <span class="footer-year">2006 vibes</span>
+            • Powered by café instantáneo :)
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Script de autenticación (debe cargarse primero) -->
+    <script src="./auth.js"></script>
+    <!-- Script principal del foro (sin librerías externas) -->
+    <script src="./app.js"></script>
+  </body>
+</html>
+

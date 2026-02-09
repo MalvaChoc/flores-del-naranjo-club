@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flores del naranjo club - Iniciar sesión</title>
+
+    <!-- Tipografía base: Comic Sans, muy dosmilera -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Contenedor general con fondo de patrón se maneja en CSS -->
+    <div class="page-wrapper">
+      <!-- Contenedor central de ancho fijo y bordes 2000s -->
+      <div class="forum-container">
+        <!-- HEADER (mismo que en el resto de páginas) -->
+        <header class="forum-header">
+          <div class="logo-zone">
+            <!-- Logo de texto exageradamente 2000s -->
+            <h1 class="forum-logo">flores del naranjo club :D</h1>
+            <p class="forum-slogan">
+              bienvenid@ al club (2006 vibes)
+            </p>
+          </div>
+
+          <!-- Barra de navegación superior (links principales) -->
+          <nav class="top-nav">
+            <a href="./index.html" class="nav-link">Inicio</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Categorías</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Usuarios</a>
+            <span class="nav-separator">|</span>
+            <a href="#" class="nav-link">Reglas</a>
+            <span class="nav-separator">|</span>
+            <a href="./profile.html" class="nav-link">Perfil</a>
+            <span class="nav-separator">|</span>
+            <a href="./register.html" class="nav-link">Registrarse</a>
+            <span class="nav-separator">|</span>
+            <a href="./login.html" class="nav-link nav-button-2000"
+              >Iniciar sesión</a
+            >
+          </nav>
+
+          <!-- Marquee suave, solo referencia estética 2000s -->
+          <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+              Escribe tu usuario y contraseña, como en los viejos tiempos :)
+              • Nada de OAuth aún, puro
+              <em>login clásico</em>
+              ;D
+            </marquee>
+          </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="forum-main" aria-label="Página de inicio de sesión">
+          <div class="content-layout">
+            <!-- Solo columna central para el formulario de login -->
+            <section
+              class="threads-section"
+              aria-label="Formulario de inicio de sesión"
+            >
+              <!-- Panel principal: Iniciar sesión -->
+              <div class="panel-2000 register-panel">
+                <h2 class="threads-title">
+                  Iniciar sesión
+                  <span class="text-emote">:)</span>
+                </h2>
+
+                <!-- Caja de mensajes (éxito / error) -->
+                <div
+                  id="login-message"
+                  class="message-box"
+                  aria-live="polite"
+                ></div>
+
+                <form id="login-form" class="register-form" novalidate>
+                  <!-- Email -->
+                  <div class="form-row">
+                    <label for="login-email" class="form-label-2000">
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      id="login-email"
+                      class="input-2000"
+                      name="email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+
+                  <!-- Contraseña -->
+                  <div class="form-row">
+                    <label for="login-password" class="form-label-2000">
+                      Contraseña:
+                    </label>
+                    <input
+                      type="password"
+                      id="login-password"
+                      class="input-2000"
+                      name="password"
+                    />
+                  </div>
+
+                  <!-- Botón Iniciar sesión -->
+                  <div class="form-row register-actions">
+                    <button
+                      type="submit"
+                      class="btn-2000 btn-2000-accent"
+                      id="btn-login-submit"
+                    >
+                      Iniciar sesión
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Panel secundario: ¿No tienes cuenta? -->
+              <div class="panel-2000 register-secondary-panel">
+                <h3 class="threads-title">
+                  ¿Nuevo por aquí?
+                  <span class="text-emote">:O</span>
+                </h3>
+                <p class="register-secondary-text">
+                  Crea tu cuenta retro y empieza a postear como si fuera 2004.
+                </p>
+                <p class="register-secondary-text">
+                  <a href="./register.html">Ir a Registrarse</a>
+                  (sin correo de confirmación, puro demo por ahora).
+                </p>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="forum-footer">
+          <p>
+            Hecho con puro ñeque •
+            <span class="footer-year">2006 vibes</span>
+            • Login clásico sin frameworks, solo front retro :)
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Script de login -->
+    <script src="./login.js"></script>
+  </body>
+</html>
+
