@@ -69,17 +69,21 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
 }
 
 body {
   /* Tipografía principal dosmilera */
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
   font-size: 16px;
   color: var(--color-text-main);
 
@@ -163,6 +167,7 @@ a:hover {
   margin: 0;
   font-size: 2.2rem;
   color: #ffffff;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   /* Sombra menos dura (antes negro puro y fucsia intenso) */
   text-shadow: 2px 2px 0 #26263b, -1px -1px 0 #b784c4;
   letter-spacing: 1px;
@@ -512,7 +517,7 @@ a:hover {
 }
 
 .input-2000 {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: inherit;
   font-size: 0.9rem;
   padding: 3px 6px;
   border-radius: 2px;
@@ -813,7 +818,7 @@ a:hover {
   border: 2px solid var(--color-sidebar-border);
   border-radius: 4px;
   box-shadow: 2px 2px 0 var(--color-sidebar-shadow);
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: inherit;
   font-size: 0.95rem;
   color: var(--color-text-main);
   text-align: center;
@@ -848,7 +853,7 @@ a:hover {
 }
 
 .textarea-2000 {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: inherit;
   font-size: 0.9rem;
   padding: 6px 8px;
   border-radius: 2px;
@@ -1152,5 +1157,3 @@ a:hover {
     text-align: center;
   }
 }
-
-
